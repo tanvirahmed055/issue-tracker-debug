@@ -31,8 +31,9 @@ const closeIssue = id => {
 
 const deleteIssue = id => {
   const issues = JSON.parse(localStorage.getItem('issues'));
-  const remainingIssues = issues.filter(issue.id !== id)
+  const remainingIssues = issues.filter(issue => parseFloat(issue.id) !== id);
   localStorage.setItem('issues', JSON.stringify(remainingIssues));
+  location.reload();
 }
 
 const fetchIssues = () => {
